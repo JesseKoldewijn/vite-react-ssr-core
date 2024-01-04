@@ -2,7 +2,6 @@ import vikeReact from "vike-react";
 
 import type { Config } from "vike/types";
 
-import logoUrl from "../assets/logo.svg";
 import Head from "../layouts/HeadDefault";
 import Layout from "../layouts/LayoutDefault";
 
@@ -15,6 +14,6 @@ export default {
   // <meta name="description">
   description: "Demo showcasing Vike",
   // <link rel="icon" href="${favicon}" />
-  favicon: logoUrl,
+  favicon: "/favicon.ico",
   extends: vikeReact,
 } satisfies Config;
