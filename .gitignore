@@ -43,4 +43,8 @@ workbox-*
 swe-worker-*
 fallback-*
 
-.vercel
+*/build-[a-z0-9]+config.h.ts
+*/build-[*]+config.h.ts
+
+# Build output
+/dist

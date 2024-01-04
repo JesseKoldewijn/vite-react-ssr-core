@@ -1,5 +1,5 @@
 import { hattip } from "@hattip/vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import vercel from "vite-plugin-vercel";
 
@@ -8,7 +8,9 @@ import ssr from "vike/plugin";
 export default defineConfig({
   plugins: [
     hattip(),
-    react(),
+    react({
+      jsxRuntime: "classic",
+    }),
     ssr({
       prerender: true,
     }),
