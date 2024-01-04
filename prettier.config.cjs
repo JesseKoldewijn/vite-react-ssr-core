@@ -1,19 +1,17 @@
-/** @type {import("prettier").Config} */
-const config = {
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').options} */
+module.exports = {
   plugins: [
     "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
   ],
   // Import sorting
   importOrder: [
-    "^vite/(.*)$",
-    "^@vite/(.*)$",
-    "^vike/(.*)$",
     "^@vike/(.*)$",
-    "^react/(.*)$",
+    "^vike/(.*)$",
     "^@react/(.*)$",
-    "^@/(.css)$",
+    "^react/(.*)$",
     "^@/(.*)$",
+    "^@/(.css)$",
     "^[./]",
   ],
   importOrderSeparation: true,
@@ -23,5 +21,3 @@ const config = {
   tailwindFunctions: ["clsx", "cn", "twMerge"],
   tailwindConfig: "./tailwind.config.ts",
 };
-
-module.exports = config;

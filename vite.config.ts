@@ -1,15 +1,22 @@
-import react from "@vitejs/plugin-react";
-import { UserConfig } from "vite";
+import { hattip } from "@hattip/vite";
+import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite";
+import vercel from "vite-plugin-vercel";
 
-import vike from "vike/plugin";
+import ssr from "vike/plugin";
 
-const config: UserConfig = {
-  plugins: [react(), vike()],
+export default defineConfig({
+  plugins: [
+    hattip(),
+    react(),
+    ssr({
+      prerender: true,
+    }),
+    vercel(),
+  ],
   resolve: {
     alias: {
       "~": "/src",
     },
   },
-};
-
-export default config;
+});

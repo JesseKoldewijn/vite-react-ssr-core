@@ -1,14 +1,18 @@
-import { Link } from "~/components/framework/Link";
+import React from "react";
 
-export const Page = () => {
+import { Counter } from "./Counter";
+
+export default function Page() {
   return (
     <>
-      <h1>Welcome</h1>
+      <h1 className="pb-4 text-3xl font-bold">My Vike app</h1>
       This page is:
       <ul>
         <li>Rendered to HTML.</li>
-        <Link href="/about">Link to about page</Link>
+        <li>
+          Interactive. <Counter />
+        </li>
       </ul>
     </>
   );
-};
+}
