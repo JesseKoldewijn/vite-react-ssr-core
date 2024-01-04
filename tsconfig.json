@@ -1,31 +1,28 @@
 {
-	"compilerOptions": {
-		"target": "ES2020",
-		"useDefineForClassFields": true,
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
-		"module": "es2022",
-		"skipLibCheck": true,
+  "compilerOptions": {
+    "strict": true,
+    "module": "ES2020",
+    "target": "ES2020",
+    // Doesn't apply to server/, see ts-node config down below and server/tsconfig.json
+    "moduleResolution": "Bundler",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client"],
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
 
-		/* Bundler mode */
-		"moduleResolution": "Bundler",
-		"allowImportingTsExtensions": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react-jsx",
-
-		/* Linting */
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-
-		/* Paths */
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["src/*"]
-		}
-	},
-	"include": ["src"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "esm": true,
+    "compilerOptions": {
+      "module": "Node16",
+      "moduleResolution": "Node16"
+    }
+  },
+  "exclude": ["*.config.cjs"]
 }
