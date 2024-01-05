@@ -1,5 +1,6 @@
 import { hattip } from "@hattip/vite";
 import react from "@vitejs/plugin-react";
+import path from "path";
 import { defineConfig } from "vite";
 
 import ssr from "vike/plugin";
@@ -16,7 +17,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "~": "/src",
+      "~": path.resolve(__dirname, "src"),
     },
   },
 });

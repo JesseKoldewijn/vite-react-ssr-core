@@ -85,6 +85,7 @@
 @font-face {
   font-family: "Geist Variable";
   font-display: swap;
+  font-weight: 1 999;
   src:
     local("Geist Variable"),
     url("/fonts/Geist/GeistVariableVF.woff2") format("woff2-variations"),
@@ -97,10 +98,11 @@
   font-display: swap;
   src:
     local("Geist"),
-    url("/fonts/Geist/GeistRegular.woff2") format("woff2"),
-    url("/fonts/Geist/GeistRegular.otf") format("otf");
+    url("/fonts/Geist/Geist-Regular.woff2") format("woff2"),
+    url("/fonts/Geist/Geist-Regular.otf") format("otf");
 }
 
 :root {
   --font-sans: "Geist Variable";
+  --font-sans-fallback: "Geist Regular", "Geist";
 }
