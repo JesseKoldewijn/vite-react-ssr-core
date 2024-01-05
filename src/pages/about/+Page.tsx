@@ -6,9 +6,11 @@ const Page = () => {
       <h1 className="pb-4 text-3xl font-bold">About</h1>
       This page is:
       <ul>
-        <li>Rendered to HTML.</li>
+        <li className="font-mono">Rendered to HTML.</li>
       </ul>
-      <LinkButton />
+      <div className="fixed bottom-0 mt-auto flex min-h-16 w-full items-center justify-center bg-black bg-opacity-50 align-middle">
+        <LinkButton href="/">Go back!</LinkButton>
+      </div>
     </>
   );
 };

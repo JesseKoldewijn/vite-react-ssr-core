@@ -1,9 +1,19 @@
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').options} */
 module.exports = {
-  plugins: [
-    "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
-  ],
+  plugins: ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  // General
+  printWidth: 100,
+  tabWidth: 2,
+  useTabs: false,
+  singleQuote: false,
+  quoteProps: "as-needed",
+  jsxSingleQuote: false,
+  trailingComma: "es5",
+  bracketSpacing: true,
+  jsxBracketSameLine: false,
+  arrowParens: "always",
+  proseWrap: "preserve",
+  experimentalTernaries: true,
   // Import sorting
   importOrder: [
     "^@vike/(.*)$",

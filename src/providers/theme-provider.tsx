@@ -1,6 +1,9 @@
+import cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "system";
+import appConfig from "~/config/app";
+
+export type Theme = "dark" | "light" | "system";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -22,15 +25,11 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export const ThemeProvider = ({
   children,
-  defaultTheme = "system",
-  storageKey = "vite-ui-theme",
+  storageKey = appConfig.themeStorageKey,
   ...props
 }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>(() =>
-    typeof localStorage !== "undefined"
-      ? (localStorage.getItem(storageKey) as Theme) || defaultTheme
-      : defaultTheme,
-  );
+  const cookieTheme = cookies.get(storageKey) as Theme;
+  const [theme, setTheme] = useState<Theme>(() => cookieTheme);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -38,15 +37,15 @@ export const ThemeProvider = ({
     root.classList.remove("light", "dark");
 
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
+      const systemTheme =
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
       root.classList.add(systemTheme);
+      cookies.set(storageKey, systemTheme);
       return;
     }
 
+    cookies.set(storageKey, theme);
     root.classList.add(theme);
   }, [theme]);
 
@@ -68,8 +67,7 @@ export const ThemeProvider = ({
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
 
-  if (context === undefined)
-    throw new Error("useTheme must be used within a ThemeProvider");
+  if (context === undefined) throw new Error("useTheme must be used within a ThemeProvider");
 
   return context;
 };

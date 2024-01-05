@@ -11,7 +11,11 @@ const router = createRouter();
  * @link {@see https://vike.dev}
  **/
 router.use(async (context) => {
-  const pageContextInit = { urlOriginal: context.request.url };
+  const pageContextInit = {
+    urlOriginal: context.request.url,
+    req: context.request,
+  };
+
   const pageContext = await renderPage(pageContextInit);
   const response = pageContext.httpResponse;
 

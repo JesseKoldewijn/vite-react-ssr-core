@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Geist Variable";
+  font-display: swap;
+  font-weight: 1 999;
+  src:
+    local("Geist Variable"),
+    url("/fonts/Geist/GeistVariableVF.woff2") format("woff2-variations"),
+    url("/fonts/Geist/GeistVariableVF.woff2") format("woff2"),
+    url("/fonts/Geist/GeistVariableVF.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Geist Regular";
+  font-display: swap;
+  src:
+    local("Geist"),
+    url("/fonts/Geist/Geist-Regular.woff2") format("woff2"),
+    url("/fonts/Geist/Geist-Regular.otf") format("otf");
+}
+
+@font-face {
+  font-family: "Geist Mono Variable";
+  font-display: swap;
+  font-weight: 1 999;
+  src:
+    local("Geist Mono Variable"),
+    url("/fonts/Geist-Mono/GeistMonoVariableVF.woff2") format("woff2-variations"),
+    url("/fonts/Geist-Mono/GeistMonoVariableVF.woff2") format("woff2"),
+    url("/fonts/Geist-Mono/GeistMonoVariableVF.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-display: swap;
+  src:
+    local("Geist Mono"),
+    url("/fonts/Geist-Mono/GeistMono-Regular.woff2") format("woff2"),
+    url("/fonts/Geist-Mono/GeistMono-Regular.otf") format("otf");
+}
+
+:root {
+  --font-sans: "Geist Variable";
+  --font-sans-fallback: "Geist Regular", "Geist", "Inter", "Roboto";
+  --font-mono: "Geist Mono Variable";
+  --font-mono-fallback: "Geist Mono", "Jetbrains Mono", monospace;
+}

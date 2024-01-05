@@ -1,8 +1,7 @@
 import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
-  darkMode: ["class"],
+  darkMode: ["class", "media"],
   content: ["./src/**/*.tsx", "./src/**/*.ts"],
   theme: {
     container: {
@@ -54,11 +53,8 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: [
-          "var(--font-sans)",
-          "var(--font-sans-fallback)",
-          ...fontFamily.sans,
-        ],
+        sans: ["var(--font-sans)", "var(--font-sans-fallback)"],
+        mono: ["var(--font-mono)", "var(--font-mono-fallback)"],
       },
       keyframes: {
         "accordion-down": {
