@@ -1,23 +1,24 @@
 import { hattip } from "@hattip/vite";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { defineConfig } from "vite";
+import { type UserConfig, defineConfig } from "vite";
 
 import ssr from "vike/plugin";
 
-export default defineConfig({
+const config = {
   plugins: [
     hattip(),
-    react({
-      jsxRuntime: "automatic",
-    }),
+    react(),
     ssr({
       prerender: true,
     }),
   ],
+
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "src"),
     },
   },
-});
+} satisfies UserConfig;
+
+export default defineConfig(config);
